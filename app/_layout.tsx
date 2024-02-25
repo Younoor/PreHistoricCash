@@ -15,6 +15,7 @@ import { useColorScheme } from "@/components/useColorScheme";
 import { SafeAreaView, StyleSheet, Switch, Text } from "react-native";
 import TabLayout from "./(tabs)/_layout";
 import NumericKeyboard from "@/components/NumericKeyboard";
+import EditScreenInfo from "@/components/EditScreenInfo";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -80,7 +81,7 @@ function RootLayoutNav() {
         {/* <NumericKeyboard style={
           styles.middle
         } onKeyPress={handleKeyPress} /> */}
-        <TabLayout />
+        {/* <TabLayout = (tabs) /> */}
       </SafeAreaView>
     </ThemeProvider>
   );
