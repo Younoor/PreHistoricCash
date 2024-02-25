@@ -77,6 +77,7 @@ function RootLayoutNav() {
         source={require('../assets/images/logo.png')}
         style={styles.logo}
         />
+        <Text style={styles.name}>PreHistoric Cash</Text>
         <Switch
           value={theme === "dark"}
           onValueChange={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -108,7 +109,12 @@ const styles = StyleSheet.create({
     height: 150,
     resizeMode: 'contain',
     justifyContent: 'center',
-  }
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
 });
 
 //        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
