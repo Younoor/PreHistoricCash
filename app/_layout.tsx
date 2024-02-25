@@ -12,7 +12,7 @@ import MyKeyboard from "@/src/components/MyKeyboard";
 import { myColors } from "@/src/styles/Colors";
 
 import { useColorScheme } from "@/components/useColorScheme";
-import { SafeAreaView, StyleSheet, Switch, Text } from "react-native";
+import { SafeAreaView, StyleSheet, Switch, Text, Image } from "react-native";
 import TabLayout from "./(tabs)/_layout";
 import NumericKeyboard from "@/components/NumericKeyboard";
 import EditScreenInfo from "@/components/EditScreenInfo";
@@ -73,9 +73,14 @@ function RootLayoutNav() {
             : [styles.container, { backgroundColor: "black" }]
         }
       >
+        <Image 
+        source={require('../assets/images/logo.png')}
+        style={styles.logo}
+        />
         <Switch
           value={theme === "dark"}
           onValueChange={() => setTheme(theme === "light" ? "dark" : "light")}
+            style={{ position: 'relative', top: -80, right: 150 }}
         />
         <MyKeyboard />
         {/* <NumericKeyboard style={
@@ -98,6 +103,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+  logo: {
+    width: 90, // Adjust the width and height according to your logo size
+    height: 150,
+    resizeMode: 'contain',
+    justifyContent: 'center',
+  }
 });
 
 //        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
