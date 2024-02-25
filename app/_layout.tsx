@@ -87,7 +87,7 @@ function RootLayoutNav() {
         {/* <NumericKeyboard style={
           styles.middle
         } onKeyPress={handleKeyPress} /> */}
-        {/* <TabLayout = (tabs) /> */}
+        {/* <TabLayout /> */}
       </SafeAreaView>
     </ThemeProvider>
   );
