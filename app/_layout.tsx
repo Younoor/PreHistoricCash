@@ -3,9 +3,13 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import MyKeyboard from '@/src/components/MyKeyboard';
+import { myColors } from '@/src/styles/Colors';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { SafeAreaView, StyleSheet, Switch, Text } from 'react-native';
+import TabLayout from './(tabs)/_layout';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -46,13 +50,31 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  const [theme, setTheme] = useState('light');
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
+      
+      <SafeAreaView style={theme === 'dark' ? styles.container : [styles.container, {backgroundColor: 'black'}]}>
+        <Switch
+          value={theme === 'dark'}
+          onValueChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        />
+        <MyKeyboard />
+        <TabLayout />
+      </SafeAreaView>
     </ThemeProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: myColors.light,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+});
+
+
+//        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
